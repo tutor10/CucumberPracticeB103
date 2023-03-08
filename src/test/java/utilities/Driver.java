@@ -3,7 +3,10 @@ package utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 import java.time.Duration;
 
@@ -15,39 +18,48 @@ public class Driver {
     2-Driver'i kapatacağımız zaman da public static void closeDriver() methodu oluşturmak. İstediğimiz zaman
     bu methodla driver'i kapatacağız
      */
-    private Driver(){
-
+    private Driver() {
     }
     static WebDriver driver;
-
     public static WebDriver getDriver() {
-        if (driver == null) {//EĞER DRIVER'A DEĞER ATANMAMIŞSA DEĞER ATA, EĞER DEĞER ATANMIŞŞSA DRİVER'I AYNI SAYFADA RETURN ET
+        if (driver == null) { //driver'a deger atanmamissa bir kere if calistiktan sonra tekrar yeni pencere acmamasi
+            // icin ikinci driver calisacagi zaman if'e deger atandigi icin if calismaz direk
+            //return den driver ayni pencerede calisir
             switch (ConfigReader.getProperty("browser")) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
                     break;
-                case "edge":
-                    WebDriverManager.edgedriver().setup();
-                    driver=new EdgeDriver();
+                case "safari":
+                    WebDriverManager.safaridriver().setup();
+                    driver = new SafariDriver();
                     break;
+                case "firefox":
+                    WebDriverManager.firefoxdriver().setup();
+                    driver = new FirefoxDriver();
+                    break;
+                case "headless-chrome"://chrome penceri acmadan testi yapar(gorunmeden arka planda calisir)
+                    WebDriverManager.chromedriver().setup();
+                    driver = new ChromeDriver(new ChromeOptions().setHeadless(true));
+                    break;
+                default:
+                    WebDriverManager.chromedriver().setup();
+                    driver = new ChromeDriver();
             }
-
             driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+
         }
         return driver;
     }
-
     public static void closeDriver() {
-        if (driver != null) { //Driver'a değer atanmışsa
+        if (driver != null) { // driver'a deger atanmissa
             driver.close();
             driver = null;
         }
     }
-
     public static void quitDriver() {
-        if (driver != null) { //Driver'a değer atanmışsa
+        if (driver != null) {
             driver.quit();
             driver = null;
         }
