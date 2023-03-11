@@ -9,14 +9,14 @@ import pages.AmazonPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 public class AmazonStepDefinition {
-    AmazonPage amazonPage;
+    AmazonPage amazonPage = new AmazonPage();
     @Given("kullanici amazona gider")
     public void kullaniciAmazonaGider() {
         Driver.getDriver().get(ConfigReader.getProperty("amazonUrl"));
     }
     @When("kullanici iphone için arama yapar")
     public void kullaniciIphoneIçinAramaYapar() {
-        amazonPage = new AmazonPage();
+
         amazonPage.aramaKutusu.sendKeys("iphone", Keys.ENTER);
     }
     @And("sayfayi kapatir")
@@ -29,7 +29,7 @@ public class AmazonStepDefinition {
     }
     @When("kullanici selenium için arama yapar")
     public void kullaniciSeleniumIçinAramaYapar() {
-        amazonPage = new AmazonPage();
+
         amazonPage.aramaKutusu.sendKeys("selenium", Keys.ENTER);
     }
     @Then("sayfa basliginin selenium icerdigini test eder")
@@ -38,7 +38,7 @@ public class AmazonStepDefinition {
     }
     @When("kullanici java için arama yapar")
     public void kullaniciJavaIçinAramaYapar() {
-        amazonPage = new AmazonPage();
+
         amazonPage.aramaKutusu.sendKeys("java", Keys.ENTER);
     }
     @Then("sayfa basliginin java icerdigini test eder")
@@ -54,7 +54,7 @@ public class AmazonStepDefinition {
 
     @When("kullanici {string} için arama yapar")
     public void kullaniciIçinAramaYapar(String string) {
-        amazonPage = new AmazonPage();
+
         amazonPage.aramaKutusu.sendKeys(string, Keys.ENTER);
     }
 
@@ -63,6 +63,19 @@ public class AmazonStepDefinition {
     public void sayfaBasligininIcerdiginiTestEder(String string) {
 
         Assert.assertTrue(Driver.getDriver().getTitle().contains(string));
+    }
+
+    @Then("kullanici sql samsung ve nokia aramasi yapar basliklari test eder")
+    public void kullaniciSqlSamsungVeNokiaAramasiYaparBasliklariTestEder() {
+        amazonPage.aramaKutusu.sendKeys(ConfigReader.getProperty("kelime1"),Keys.ENTER);
+        Assert.assertTrue(Driver.getDriver().getTitle().contains(ConfigReader.getProperty("kelime1")));
+        amazonPage.aramaKutusu.clear();
+        amazonPage.aramaKutusu.sendKeys(ConfigReader.getProperty("kelime2"),Keys.ENTER);
+        Assert.assertTrue(Driver.getDriver().getTitle().contains(ConfigReader.getProperty("kelime2")));
+        amazonPage.aramaKutusu.clear();
+        amazonPage.aramaKutusu.sendKeys(ConfigReader.getProperty("kelime3"),Keys.ENTER);
+        Assert.assertTrue(Driver.getDriver().getTitle().contains(ConfigReader.getProperty("kelime3")));
+
     }
 }
 

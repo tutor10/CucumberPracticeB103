@@ -12,7 +12,7 @@ Feature: ilk feature file
     When kullanici selenium için arama yapar
     Then sayfa basliginin selenium icerdigini test eder
     Given sayfayi kapatir
-  @gp3
+  @gp5
    Scenario: TC03_amazon_java_arama
     Given kullanici amazona gider
     When kullanici java için arama yapar

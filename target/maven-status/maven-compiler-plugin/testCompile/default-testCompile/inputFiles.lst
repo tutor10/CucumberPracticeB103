@@ -1,4 +1,9 @@
-C:\com.B103Selenium\CucumberPracticeB103\src\test\java\runners\Runner.java
-C:\com.B103Selenium\CucumberPracticeB103\src\test\java\utilities\Driver.java
-C:\com.B103Selenium\CucumberPracticeB103\src\test\java\stepdefinitions\AmazonStepDefinition.java
-C:\com.B103Selenium\CucumberPracticeB103\src\test\java\utilities\ConfigReader.java
+C:\Users\tasta\IdeaProjects\CucumberPracticeB103\src\test\java\pages\DqaPage.java
+C:\Users\tasta\IdeaProjects\CucumberPracticeB103\src\test\java\utilities\ConfigReader.java
+C:\Users\tasta\IdeaProjects\CucumberPracticeB103\src\test\java\stepdefinitions\Hooks.java
+C:\Users\tasta\IdeaProjects\CucumberPracticeB103\src\test\java\runners\Runner1.java
+C:\Users\tasta\IdeaProjects\CucumberPracticeB103\src\test\java\pages\AmazonPage.java
+C:\Users\tasta\IdeaProjects\CucumberPracticeB103\src\test\java\runners\Runner.java
+C:\Users\tasta\IdeaProjects\CucumberPracticeB103\src\test\java\stepdefinitions\DemoQAStepDefinition.java
+C:\Users\tasta\IdeaProjects\CucumberPracticeB103\src\test\java\stepdefinitions\AmazonStepDefinition.java
+C:\Users\tasta\IdeaProjects\CucumberPracticeB103\src\test\java\utilities\Driver.java

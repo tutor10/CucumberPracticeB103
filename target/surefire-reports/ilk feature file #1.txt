@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: ilk feature file #1
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.324 s <<< FAILURE! - in ilk feature file #1
+TC02_amazon_selenium_arama(ilk feature file #1)  Time elapsed: 0.323 s  <<< ERROR!
+io.cucumber.core.exception.CucumberException: Failed to instantiate class stepdefinitions.AmazonStepDefinition
+Caused by: java.lang.reflect.InvocationTargetException
+Caused by: java.lang.NullPointerException
+
+TC02_amazon_selenium_arama(ilk feature file #1)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException
+
